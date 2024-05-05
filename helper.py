@@ -127,7 +127,7 @@ def get_round_counter():
 
 
 def write_round_counter(counter: int):
-    with open("round_counter.txt", "r") as file:
+    with open("round_counter.txt", "w") as file:
         return file.write(str(counter))
 
 
