@@ -20,7 +20,6 @@ def main():
 
     helper.send_choice_clear(ac_list[action], salt)
 
-    time.sleep(5)
     print("reset Hash")
     helper.reset_hash()
 
