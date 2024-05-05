@@ -3,6 +3,7 @@ import helper
 
 helper.reset_round_counter()
 helper.reset_win_counter()
+helper.reset_hash()
 
 def main():
     action = int(input("Please select action \n [1] Schere \n [2] Stein \n [3] Papier \n"))
