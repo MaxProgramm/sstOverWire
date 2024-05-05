@@ -17,10 +17,10 @@ def receive_action():
             helper.add_round_counter()
 
         if win_state == 0:
-            print("Tie!")
+            print("You lost this round!")
 
         if win_state == -1:
-            print("You lost this round!")
+            print("Tie")
 
     else:
         print("Hashes don't match! FAKE detected")
