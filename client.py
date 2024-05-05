@@ -22,6 +22,8 @@ def main():
 
     print("reset Hash")
     helper.reset_hash()
+    if helper.get_round_counter() < 3:
+        main()
 
 
 if helper.get_round_counter() < 3:
