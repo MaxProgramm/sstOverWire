@@ -3,7 +3,7 @@ import hashlib as hl
 import random
 import string
 
-url = "http://192.168.179.92"
+url = "http://192.168.179.39"
 
 def write_hash(hashed_action_and_secret: str):
     with open("hashes.txt", "w") as file:

@@ -10,6 +10,7 @@ def receive_action():
 
     if helper.check_hash(action, salt):
         print("Hash check successful!")
+        print(f"Guest chose: {action}")
         win_state = helper.ssp_check_round_if_won(helper.get_own_action(), action)
         if win_state == 1:
             print("You won this round!")
@@ -34,6 +35,7 @@ def receive_action():
 def receive_hash():
     hashed_action = request.get_data(as_text=True)
     helper.write_hash(hashed_action)
+    return "<p>WORKS!</p>"
 
 
 
