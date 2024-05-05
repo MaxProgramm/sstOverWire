@@ -1,25 +1,43 @@
 import time
-
 import helper
 
-action = int(input("Please select action \n [1] Schere \n [2] Stein \n [3] Papier \n"))
+helper.reset_round_counter()
+helper.reset_win_counter()
 
-ac_list = ["", "Schere", "Stein", "Papier"]
+def main():
+    action = int(input("Please select action \n [1] Schere \n [2] Stein \n [3] Papier \n"))
 
-salt = helper.get_random_string(10)
-helper.write_own_salt(salt)
+    ac_list = ["", "Schere", "Stein", "Papier"]
 
-helper.write_own_action(ac_list[action])
-helper.send_hashed(ac_list[action], salt)
+    salt = helper.get_random_string(10)
+    helper.write_own_salt(salt)
 
-while not helper.received_hash():
-    pass
+    helper.write_own_action(ac_list[action])
+    helper.send_hashed(ac_list[action], salt)
 
-helper.send_choice_clear(ac_list[action], salt)
+    while not helper.received_hash():
+        pass
 
-time.sleep(5)
-print("reset Hash")
-helper.reset_hash()
+    helper.send_choice_clear(ac_list[action], salt)
+
+    time.sleep(5)
+    print("reset Hash")
+    helper.reset_hash()
+
+    if helper.get_round_counter() < 3:
+        main()
+
+if helper.get_win_counter() < 2:
+    print("You lost the game!")
+
+else:
+    print("You won!")
+
+
+helper.reset_win_counter()
+helper.reset_round_counter()
+
+
 
 
 

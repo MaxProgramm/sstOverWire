@@ -14,13 +14,17 @@ def receive_action():
         win_state = helper.ssp_check_round_if_won(helper.get_own_action(), action)
         if win_state == 1:
             print("You won this round!")
+            helper.add_win_counter()
+            helper.add_win_counter()
             helper.add_round_counter()
 
         if win_state == 0:
             print("You lost this round!")
+            helper.add_round_counter()
 
         if win_state == -1:
             print("Tie")
+
 
     else:
         print("Hashes don't match! FAKE detected")
